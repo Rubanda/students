@@ -23,7 +23,8 @@ export default function Sider() {
 
   return (
     <div className='sider'>
-      <h2>classes</h2>
+      <div>
+        <Link to='/class'><h2>classes</h2></Link>
       {loading ? <Loading></Loading>
         : error ? <Message>{error}</Message> :
           (
@@ -37,10 +38,15 @@ export default function Sider() {
               </ul>
             </>
       )
-      }
-      <ul>
-        
-      </ul>
+        }
+      </div>
+      <div>
+        <Link to='/student'><h2>Student</h2></Link>
+
+      </div>
+      <div>
+        <Link to='/course'><h2>Course</h2></Link>
+      </div>
     </div>
   )
 }
