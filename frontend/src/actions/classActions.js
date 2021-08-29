@@ -11,7 +11,7 @@ export const classActions = () => async (dispatch) => {
     type: CLASS_LIST_REQUEST
   })
   try {
-    const { data } = await Axios.get(`api/class`)
+    const { data } = await Axios.get(`api/classes`)
     dispatch({
       type: CLASS_LIST_SUCCESS,
       payload: data
