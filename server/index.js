@@ -1,6 +1,7 @@
 const express = require("express")
 
 const classesRouter = require("./routers/classes")
+const studentsRouter = require("./routers/students")
 
 const port = process.env.PORT || 8080
 
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
 })
 
 app.use("/api/classes", classesRouter)
+app.use("/api/students", studentsRouter)
 
 app.listen(port, () => {
   console.log("Server started at port: ", port)
