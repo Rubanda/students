@@ -5,7 +5,6 @@ import SingleCourseCard from './SingleCourseCard'
 
 function CoursesTab() {
 
-
   const dispatch = useDispatch()
   const courses = useSelector((state) => state.coursesReducer.courses)
 
