@@ -1,0 +1,31 @@
+.sidebar {
+  background: #c29bf8;
+  grid-area: sidebar;
+  overflow-y: auto;
+  padding: 20px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  &__menu-link {
+    padding: 1rem;
+
+    &--selected {
+      background-color: #eaeaea;
+    }
+  }
+
+  &__menu-link-container {
+    margin: 0;
+  }
+
+  &__logo-container {
+    margin-bottom: 10px;
+  }
+}

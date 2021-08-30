@@ -30,22 +30,6 @@ body {
   border-bottom: 1px solid lightgray;
 }
 
-/* sider bar */
-.sidebar {
-  background: #c29bf8;
-  grid-area: sidebar;
-  overflow-y: auto;
-  padding: 20px;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
-.sidebar-menu {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
 main {
   background: #f3f4f6;
   grid-area: main;
