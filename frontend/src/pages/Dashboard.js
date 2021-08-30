@@ -9,12 +9,9 @@ const Dashboard = () => {
     <div>
       <Switch>
         <Route path='/' component={ClassesTab} exact></Route>
-        <Route path='/classes' component={ClassesTab} exact></Route>
-        <Route path='/classes/:id' component={ClassesTab} exact></Route>
-        <Route path='/students' component={StudentsTab} exact></Route>
-        <Route path='/students/:id' component={StudentsTab} exact></Route>
-        <Route path='/courses' component={CoursesTab} exact></Route>
-        <Route path='/courses/:id' component={CoursesTab} exact></Route>
+        <Route path='/classes' component={ClassesTab}></Route>
+        <Route path='/students' component={StudentsTab}></Route>
+        <Route path='/courses' component={CoursesTab}></Route>
       </Switch>
     </div>
   )

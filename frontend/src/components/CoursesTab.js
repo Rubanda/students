@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route, Switch } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { coursesActions } from '../store/actions/coursesActions'
 import SingleCourseCard from './SingleCourseCard'
@@ -21,6 +22,12 @@ function CoursesTab() {
   return (
     <div>
       <h1>Courses</h1>
+      <Switch>
+        <Route path='/' component={CoursesTab} exact></Route>
+        <Route path='/add' component={CoursesTab} exact></Route>
+        <Route path='/:id' component={CoursesTab} exact></Route>
+        <Route path='/:id/edit' component={CoursesTab} exact></Route>
+      </Switch>
       {
         courses
           ?
