@@ -29,7 +29,9 @@ body {
   padding: 0 30px 0 30px;
   border-bottom: 1px solid lightgray;
 }
-.sider {
+
+/* sider bar */
+.sidebar {
   background: #c29bf8;
   grid-area: sidebar;
   overflow-y: auto;
@@ -37,6 +39,13 @@ body {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
+
+.sidebar-menu {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 main {
   background: #f3f4f6;
   grid-area: main;
@@ -70,4 +79,42 @@ main {
   color: #20a020;
   background-color: #eeffe0;
 }
+/* form */
+input[type=text]{
+    /* width:100%; */
+    border:2px solid #aaa;
+    border-radius:4px;
+    margin:8px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.3s;
+  }
+  
+  input[type=text]:focus{
+    border-color:dodgerBlue;
+    box-shadow:0 0 8px 0 dodgerBlue;
+  }
 
+button {
+  height: 2.5em;
+  /* width: 10%; */
+  padding: 1.5em auto;
+  margin: 1em auto;
+  background-color: #FEB1C0;
+  border: none;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+ 
+}
+/* Image css */
+
+img {
+  border-radius: 50%;
+}
+/* screens */
+.class-container {
+  margin-top: 2px;
+  padding: 2rem 1.5rem;
+}

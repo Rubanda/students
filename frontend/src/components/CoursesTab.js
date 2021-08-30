@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function CourseScreen() {
+function CoursesTab() {
   return (
     <div>
-      Course Screen
+      Courses
     </div>
   )
 }
+
+export default CoursesTab

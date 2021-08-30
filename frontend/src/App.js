@@ -1,23 +1,22 @@
-import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
-import ClassScreen from './screen/ClassScreen';
-import StudentScreen from './screen/StudentScreen';
-import CourseScreen from './screen/CourseScreen';
-import Header from './component/Header';
-import Sider from './component/Sider';
+
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="grid-container">
         <Header />
-        <Sider/>
+        <Sidebar/>
         <main>
           <div>
-            <Route path='/class' component={ClassScreen}></Route>
-            <Route path='/student' component={StudentScreen}></Route>
-            <Route path='/course' component={CourseScreen}></Route>
-
+            <Switch>
+              <Route path='/' component={Dashboard}></Route>
+            </Switch>
           </div>
         </main>
       </div>
