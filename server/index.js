@@ -4,7 +4,7 @@ const classesRouter = require("./routers/classes")
 const studentsRouter = require("./routers/students")
 const coursesRouter = require("./routers/courses")
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8000
 
 const bodyParser = require("body-parser")
 

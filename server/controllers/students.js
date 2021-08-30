@@ -1,7 +1,7 @@
 const models = require("../models")
 
 const index = (req, res) => {
-  models.Student.findAll().then(result => {
+  models.Student.findAll({include: ["class", "courses"]}).then(result => {
     res.status(200).json(result)
   }).catch(error => {
     res.status(500).json({
@@ -13,7 +13,7 @@ const index = (req, res) => {
 const show = (req, res) => {
   const id = req.params.id
 
-  models.Student.findByPk(id).then(result => {
+  models.Student.findByPk(id, {include: ["class", "courses"]}).then(result => {
     res.status(200).json(result)
   }).catch(error => {
     res.status(500).json({
@@ -99,11 +99,63 @@ const destroy = async (req, res) => {
   })
 }
 
+const storeCourse = (req, res) => {
+  const id = req.params.id
+  const courseId = req.body.course_id
+
+  models.Student.findByPk(id, {include: "courses"}).then(student => {
+    models.Course.findByPk(courseId, {include: "students"}).then(course => {
+      student.setCourses([course]).then(result => {
+        res.status(200).json(result)
+      }).catch(error => {
+        res.status(500).json({
+          message: "Failed to set course."
+        })
+      })
+    }).catch(error => {
+      res.status(500).json({
+        message: "Failed to find course."
+      })
+    })
+  }).catch(error => {
+    res.status(500).json({
+      message: "Something isn't right."
+    })
+  })
+}
+
+const removeCourse = (req, res) => {
+  const id = req.params.id
+  const courseId = req.body.course_id
+
+  models.Student.findByPk(id, {include: "courses"}).then(student => {
+    models.Course.findByPk(courseId, {include: "students"}).then(course => {
+      student.removeCourses([course]).then(result => {
+        res.status(200).json(result)
+      }).catch(error => {
+        res.status(500).json({
+          message: "Failed to remove course."
+        })
+      })
+    }).catch(error => {
+      res.status(500).json({
+        message: "Failed to find course."
+      })
+    })
+  }).catch(error => {
+    res.status(500).json({
+      message: "Failed to find student with error: ", error
+    })
+  })
+}
+
 module.exports = {
+  show,
   index,
   store,
-  show,
   update,
   destroy,
-  removeClass
+  removeClass,
+  storeCourse,
+  removeCourse,
 }

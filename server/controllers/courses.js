@@ -1,7 +1,7 @@
 const models = require("../models")
 
 const index = (req, res) => {
-  models.Course.findAll().then(result => {
+  models.Course.findAll({include: "students"}).then(result => {
     res.status(200).json(result)
   }).catch(error => {
     res.status(500).json({
@@ -13,11 +13,62 @@ const index = (req, res) => {
 const show = (req, res) => {
   const id = req.params.id
 
-  models.Course.findByPk(id).then(result => {
+  models.Course.findByPk(id, {include: "students"}).then(result => {
     res.status(200).json(result)
   }).catch(error => {
     res.status(500).json({
       message: "Something isn't right."
+    })
+  })
+}
+
+
+const storeStudent = (req, res) => {
+  const id = req.params.id
+  const studentId = req.body.student_id
+
+  models.Course.findByPk(id, {include: "students"}).then(course => {
+    models.Student.findByPk(studentId, {include: "courses"}).then(student => {
+      course.setStudents([student]).then(result => {
+        res.status(200).json(result)
+      }).catch(error => {
+        res.status(500).json({
+          message: "Failed to set student."
+        })
+      })
+    }).catch(error => {
+      res.status(500).json({
+        message: "Failed to find student."
+      })
+    })
+  }).catch(error => {
+    res.status(500).json({
+      message: "Something isn't right."
+    })
+  })
+}
+
+const removeStudent = (req, res) => {
+  const id = req.params.id
+  const studentId = req.body.student_id
+
+  models.Course.findByPk(id, {include: "students"}).then(course => {
+    models.Student.findByPk(studentId, {include: "courses"}).then(student => {
+      course.removeStudents([student]).then(result => {
+        res.status(200).json(result)
+      }).catch(error => {
+        res.status(500).json({
+          message: "Failed to remove student."
+        })
+      })
+    }).catch(error => {
+      res.status(500).json({
+        message: "Failed to find student."
+      })
+    })
+  }).catch(error => {
+    res.status(500).json({
+      message: "Failed to find course with error: ", error
     })
   })
 }
@@ -34,7 +85,7 @@ const store = (req, res) => {
     })
   }).catch(error => {
     res.status(500).json({
-      message: "Something isn't right.",
+      message: "Failed to create a course.",
       error: error
     })
   })
@@ -78,9 +129,11 @@ const destroy = async (req, res) => {
 }
 
 module.exports = {
+  show,
   index,
   store,
-  show,
   update,
-  destroy
+  destroy,
+  storeStudent,
+  removeStudent,
 }

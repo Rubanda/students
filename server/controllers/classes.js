@@ -1,7 +1,7 @@
 const models = require("../models")
 
 const index = (req, res) => {
-  models.Class.findAll().then(result => {
+  models.Class.findAll({include: "students"}).then(result => {
     res.status(200).json(result)
   }).catch(error => {
     res.status(500).json({
@@ -13,7 +13,7 @@ const index = (req, res) => {
 const show = (req, res) => {
   const id = req.params.id
 
-  models.Class.findByPk(id).then(result => {
+  models.Class.findByPk(id, {include: ["students"]}).then(result => {
     res.status(200).json(result)
   }).catch(error => {
     res.status(500).json({
