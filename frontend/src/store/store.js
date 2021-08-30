@@ -1,12 +1,14 @@
-import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
+import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
+
 import classesReducer from "./reducers/classesReducer"
-// import { classReducer, SingleclassReducer } from './reducers/classReducer';
+import coursesReducer from "./reducers/coursesReducer"
 
 const initialState = {};
 
 const reducer = combineReducers({
-  classesReducer: classesReducer,
+  classesReducer,
+  coursesReducer,
 })
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

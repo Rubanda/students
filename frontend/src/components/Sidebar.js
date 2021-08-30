@@ -5,6 +5,8 @@ export default function Sidebar() {
 
   const history = useHistory()
 
+  console.log("<<<<<<<<<<<<<<<<< History: ", history)
+
   return (
     <div className='sidebar'>
       <div className='sidebar__menu'>
