@@ -25,6 +25,29 @@ export const classesActions = {
       }
     }
   },
+  deleteClass: async (id, dispatch) => {
+    let response;
+
+    try {
+      response = await api.delete(`/api/classes/${id}`);
+    } catch (error) {
+      response = error.response
+    }
+
+    if (response?.status === 200) {
+      dispatch({
+        type: actionTypes.DELETE_SINGLE_CLASS,
+        payload: id
+      })
+    } else {
+      return {
+        type: actionTypes.ADD_CLASSES_ERROR,
+        payload: {
+          "fetch_classes": response.data
+        }
+      }
+    }
+  },
   clearClasses: () => {
     return {
       type: actionTypes.CLEAR_CLASSES,

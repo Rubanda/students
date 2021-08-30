@@ -80,9 +80,9 @@ input[type=text]{
     box-shadow:0 0 8px 0 dodgerBlue;
   }
 
-button {
+/* button {
   height: 2.5em;
-  /* width: 10%; */
+  width: 10%;
   padding: 1.5em auto;
   margin: 1em auto;
   background-color: #FEB1C0;
@@ -91,7 +91,7 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.5em;
  
-}
+} */
 /* Image css */
 
 img {

@@ -13,6 +13,14 @@ const reducer = (state = initialState, action) => {
         classes: action.payload
       }
     }
+    case actionTypes.DELETE_SINGLE_CLASS: {
+      let newClasses = state.classes || []
+      newClasses = newClasses.filter(item => item.id !== action.payload)
+      return {
+        ...state,
+        classes: newClasses
+      }
+    }
     case actionTypes.CLEAR_CLASSES: {
       return {
         ...state,

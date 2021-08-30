@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
 import { classesActions } from '../store/actions/classesActions'
 import SingleClassCard from './SingleClassCard'
@@ -19,8 +20,11 @@ function ClassesTab() {
   }, [dispatch, classes])
 
   return (
-    <div>
-      <h1>Classes</h1>
+    <div className="classes">
+      <div className="classes__header-container">
+        <h1 className="classes__header">Classes</h1>
+        <Link to="/classes/add" className="classes__create-link">Create New Class</Link>
+      </div>
       {
         classes
           ?

@@ -1,0 +1,17 @@
+.classes {
+   
+  &__header-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 1rem;
+  }
+
+  &__header {
+    margin-right: 0.75rem;
+  }
+
+  &__create-link {
+    margin-bottom: 5px;
+  }
+}
