@@ -50,12 +50,22 @@ function ClassesEdit() {
   }, [params.id, values])
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        {errors && <div className="error">{ errors?.message }</div>}
-        <input type="text" value={values.name || ""} onChange={handleChange} required />
-        <button type="submit" disabled={loading}>{loading ? "Editing..." : "Edit Class"}</button>
-      </form>
+    <div className="cards__c-card">
+        
+        <form onSubmit={handleSubmit} >
+          {errors && <div className="error">{errors?.message}</div>}
+          <div className='cards__c-card__form'>
+            <input type="text" value={values.name || ""} onChange={handleChange} required />
+            <button
+              className="cards__c-card__action-button"
+              type="submit"
+              disabled={loading}
+            >
+              {loading ? "Updating..." : "Updating Class"}
+            </button>
+          </div>
+          
+        </form>
     </div>
   )
 }

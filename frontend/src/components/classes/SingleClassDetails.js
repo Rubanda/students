@@ -1,51 +1,68 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import api from '../../utils/api'
 
 function SingleClassDetails() {
 
   const params = useParams()
-  const [values, setValues] = React.useState(null)
+  const [classValues, setClassValues] = React.useState(null)
   const [errors, setErrors] = React.useState(null)
 
   React.useEffect(() => {
-    if (!values) {
+    if (!classValues) {
       api.get(`/api/classes/${params.id}`)
       .then(response => {
-        setValues({...response.data})
+        setClassValues({...response.data})
       })
       .catch(error => {
         console.log("Error fetching class")
         setErrors(error?.response?.data)
       })
     }
-  }, [params.id, values])
+  }, [params.id, classValues])
 
   return (
     <div>
       {errors && <div className="error">{ errors?.message }</div>}
       {
-        values
+        classValues
           ?
           (
             <div>
               <div>
-                <p>Name: </p>{values.name}
+                <p><strong>Name:</strong> {classValues.name}</p>
               </div>
               <div>
-                <p>Number: </p>{values.students?.length}
+                <p><strong>Number of Students:</strong> {classValues.students?.length}</p>
               </div>
-              <div>
-                <h6>Students</h6>
+              <div style={{ marginTop: "15px" }}>
+                <div>
+                  <h6 style={{ fontSize: "16px" }}>Students</h6>
+                  {/* <button onClick={handleAddStudent}>Add Student</button> */}
+                </div>
                 <div>
                   {
-                    values.students.map(item => {
-                      return (
-                        <React.Fragment key={item.id}>
-                          {item.name}
-                        </React.Fragment>
+                    classValues?.students?.length > 0
+                      ?
+                      (
+                        <>
+                          {classValues.students.map(item => {
+                            return (
+                              <div key={item.id}>
+                                <Link to={`/students/${item.id}`}>
+                                  {item.name}
+                                </Link>
+                              </div>
+                            )
+                          })}
+                        </>
                       )
-                    })
+                      :
+                      (
+                        <div>
+                          <p>No students in this class</p>
+                        </div>
+                      )
                   }
                 </div>
               </div>
