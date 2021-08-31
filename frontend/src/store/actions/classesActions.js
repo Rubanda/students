@@ -10,7 +10,6 @@ export const classesActions = {
     } catch (error) {
       response = error.response
     }
-
     if (response?.status === 200) {
       return {
         type: actionTypes.ADD_CLASSES,

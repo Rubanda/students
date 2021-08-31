@@ -13,6 +13,14 @@ const reducer = (state = initialState, action) => {
         courses: action.payload
       }
     }
+    case actionTypes.DELETE_SINGLE_COURSE: {
+      let newCourse = state.courses || []
+      newCourse = newCourse.filter(item => item.id !== action.payload)
+      return {
+        ...state,
+        courses: newCourse
+      }
+    }
     case actionTypes.CLEAR_COURSES: {
       return {
         ...state,
