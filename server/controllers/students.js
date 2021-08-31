@@ -105,7 +105,7 @@ const storeCourse = (req, res) => {
 
   models.Student.findByPk(id, {include: "courses"}).then(student => {
     models.Course.findByPk(courseId, {include: "students"}).then(course => {
-      student.setCourses([course]).then(result => {
+      student.setCourses([...student.courses, course]).then(result => {
         res.status(200).json(result)
       }).catch(error => {
         res.status(500).json({
@@ -126,7 +126,7 @@ const storeCourse = (req, res) => {
 
 const removeCourse = (req, res) => {
   const id = req.params.id
-  const courseId = req.body.course_id
+  const courseId = req.params.courseId
 
   models.Student.findByPk(id, {include: "courses"}).then(student => {
     models.Course.findByPk(courseId, {include: "students"}).then(course => {
