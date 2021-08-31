@@ -16,6 +16,15 @@ function ClassesEdit() {
 
   const handleChange = (e) => {setValues({...values, name: e.target.value})}
 
+
+  const handleCancel = () => {
+    if (history.length >= 2) {
+      history.goBack()
+    } else {
+      history.push("/classes")
+    }
+  }
+  
   const handleSubmit = async (e) => {
     setLoading(true)
     e.preventDefault()
@@ -55,14 +64,21 @@ function ClassesEdit() {
         <form onSubmit={handleSubmit} >
           {errors && <div className="error">{errors?.message}</div>}
           <div className='cards__c-card__form'>
-            <input type="text" value={values.name || ""} onChange={handleChange} required />
-            <button
-              className="cards__c-card__action-button"
-              type="submit"
-              disabled={loading}
-            >
-              {loading ? "Updating..." : "Updating Class"}
-            </button>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <label htmlFor="name">Name</label>
+              <input id="name" placeholder="Name" type="text" value={values.name || ""} onChange={handleChange}  required />
+          </div>
+          
+            <div style={{display: "flex", justifyContent: "space-between"}}>
+              <button
+                className="cards__c-card__action-button"
+                type="submit"
+                disabled={loading}
+              >
+                {loading ? "Updating..." : "Updating Class"}
+              </button>  
+              <button type="reset" disabled={loading} onClick={handleCancel}>Cancel</button>
+            </div>
           </div>
           
         </form>
