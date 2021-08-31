@@ -12,9 +12,16 @@ const CoursesCreate = () =>{
   const [loading, setLoading] = React.useState(false)
 
   const history = useHistory()
-  console.log("---------->>>>>> here", history )
 
-  const handleChange = (e) => {setValues({...values, name: e.target.value})}
+  const handleChange = (e) => { setValues({ ...values, name: e.target.value }) }
+  
+  const handleCancel = () => {
+    if (history.length >= 2) {
+      history.goBack()
+    } else {
+      history.push("/classes")
+    }
+  }
 
   const handleSubmit = async (e) => {
     setLoading(true)
@@ -39,10 +46,18 @@ const CoursesCreate = () =>{
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        {errors && <div className="error">{errors?.message}</div>}
-        <input type="text" value={values.name || ""} onChange={handleChange} required />
-        <button type="submit" disabled={loading}>{loading ? "Creating..." : "Create Course"}</button>
+      <form onSubmit={handleSubmit} style={{width: "100%"}}>
+        <div style={{width: "100%"}}>
+          {errors && <div className="error">{errors?.message}</div>}
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <label htmlFor="name">Name</label>
+            <input id="name" placeholder="Name" type="text" value={values.name || ""} onChange={handleChange}  required />
+          </div>
+          <div style={{display: "flex", justifyContent: "space-between"}}>
+            <button type="submit" disabled={loading}>{loading ? "Submiting..." : "Submit"}</button>
+            <button type="reset" disabled={loading} onClick={handleCancel}>Cancel</button>
+          </div>
+        </div>
       </form>
     </div>
   )

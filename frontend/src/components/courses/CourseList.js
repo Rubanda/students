@@ -4,7 +4,7 @@ import SingleCourseCard from './SingleCourseCard'
 const CourseList = ({ courses }) => {
   
   return (
-    <div>
+    <div className="card">
       {
         courses
           ?

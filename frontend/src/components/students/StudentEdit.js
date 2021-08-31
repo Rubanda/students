@@ -181,7 +181,7 @@ const CoursesEdit = () => {
                 {
                   values.courses.map(item => {
                     return (
-                      <div key={item.id} style={{display: "flex", justifyContent: "space-between"}}>
+                      <div key={item.id} style={{display: "flex", justifyContent: "space-between", marginBottom: "10px"}}>
                         <Link to={`/courses/${item.id}`}>{item.name}</Link>
                         <button onClick={() => {handleRemoveCourse(item.id)}}>Delete</button>
                       </div>

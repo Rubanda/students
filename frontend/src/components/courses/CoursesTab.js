@@ -5,7 +5,7 @@ import { coursesActions } from '../../store/actions/coursesActions'
 import CourseList from './CourseList'
 import CoursesCreate from './CourseCreate'
 import CoursesEdit from './CoursesEdit'
-import SingleCoursesDetails from '../classes/SingleClassDetails'
+import SingleCoursesDetails from './SingleCoursesDetails'
 
 const CoursesTab = ()  => {
 
@@ -23,15 +23,17 @@ const CoursesTab = ()  => {
   }, [dispatch, courses])
 
   return (
-    <div>
+    <div className="class">
       <div className="classes__header-container">
         <h1 className="classes__header">Course</h1>
-        <Link to="/courses/add" className="classes__create-link">Create New Course</Link>
+        <Link to="/courses/add" className="classes__create-link">
+          <button className="classes__create-link__button">Create New Course
+          </button></Link>
       </div>
       <Switch>
         <Route path='/courses' component={()=><CourseList courses={courses} />} exact></Route>
         <Route path='/courses/add' component={CoursesCreate} exact></Route>
-        <Route path='/courses:id' component={SingleCoursesDetails} exact></Route>
+        <Route path='/courses/:id' component={SingleCoursesDetails} exact></Route>
         <Route path='/courses/:id/edit' component={CoursesEdit} exact></Route>
 
       </Switch>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import api from '../../utils/api'
 
 function SingleCoursesDetails() {
@@ -30,24 +30,40 @@ function SingleCoursesDetails() {
           (
             <div>
               <div>
-                <p>Name: </p>{values.name}
+                <p><strong>Name:</strong> {values.name}</p>
               </div>
-              <div>
-                <p>Number: </p>{values.students?.length}
-              </div>
-              <div>
-                <h6>Students</h6>
+              <div style={{ marginTop: "15px" }}>
+                <div>
+                  <h6 style={{ fontSize: "16px" }}>Students</h6>
+                </div>
                 <div>
                   {
-                    values.students.map(item => {
-                      return (
-                        <React.Fragment key={item.id}>
-                          {item.name}
-                        </React.Fragment>
+                    values?.students?.length > 0
+                      ?
+                      (
+                        <>
+                          {values.students.map(item => {
+                            return (
+                              <div key={item.id}>
+                                <Link to={`/students/${item.id}`}>
+                                  {item.name}
+                                </Link>
+                              </div>
+                            )
+                          })}
+                        </>
                       )
-                    })
+                      :
+                      (
+                        <div>
+                          <p>No courses for this student</p>
+                        </div>
+                      )
                   }
                 </div>
+              </div>
+              <div style={{ marginTop: "10px"}}>
+                <Link to={`/courses/${values.id}/edit`}>Edit Course</Link>
               </div>
             </div>
           )
