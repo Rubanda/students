@@ -1,17 +1,96 @@
-.classes {
-   
-  &__header-container {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    padding: 1rem;
-  }
+@import "../breakpoints/breakpoints.scss";
 
-  &__header {
-    margin-right: 0.75rem;
+.classes {
+  &__header-container{
+    display: grid;
+    grid-template-columns: 50% 40%;
+    grid-gap: 2rem;
+    padding: 1rem;
   }
 
   &__create-link {
     margin-bottom: 5px;
+    padding: .5rem;
+    border: 1px solid grey;
+    font-size: 0.9rem;
+    width: 120px;
+    text-decoration: none;
+      &:hover{
+        box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
+      }
+
+  }
+  &__c-card {
+    display: inline-block;
+    padding: 1rem;
+    width: 100%;
+    max-width: 350px;
+    margin: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 6px 10px -5px rgba(0, 0, 0, 0.2);
+
+    // &:hover{
+    //   transform: translateY(-5px);
+    //   box-shadow: 0 20px 20px -15px rgba(0, 0, 0, 0.3);
+    // }
+  &__form {
+    display: flex;
+    align-items: center;
+  }  
+
+  &__action-button {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    background: #0a95ff;
+    }
+  }
+
+  @include media('<=phone'){
+    .cards {
+      &__c-card {
+        display: flex;
+        text-align: center;
+        padding: .5rem;
+        width: 100%;
+        max-width: 150px;
+        margin: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: #fff;
+        box-shadow: 0 6px 10px -5px rgba(0, 0, 0, 0.2);
+      &__form form{
+        display: block;
+      }
+      }
   }
 }
+
+
+  @include media('<=tablet') {
+    &__header-container{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+      width: 350px;
+      padding: 1rem;
+    }
+      &__create-link {
+    margin-bottom: 5px;
+    padding: .5rem;
+    font-size: 0.9rem;
+    border: 1px solid grey;
+    width: 120px;
+    text-decoration: none;
+      &:hover{
+        box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
+      }
+
+
+  }
+  
+}}

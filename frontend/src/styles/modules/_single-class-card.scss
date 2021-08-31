@@ -1,17 +1,65 @@
-.single-class-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  border-bottom: 1px solid #eaeaea;
+@import "../breakpoints/breakpoints.scss";
 
-  &:last-child {
-    border-bottom: none;
+.single-class-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2;
+  padding: 0.5rem;
+  border: 1px solid #c8c8c8;
+
+
+  &__link {
+    text-decoration: none;
   }
 
+
+  &:last-child {
+    text-decoration: none;
+    // border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+  }
+  .link {
+    text-decoration: none;
+    font-size: 5rem;
+  }
+  &__btn {
+    font-size: 1.5rem;
+    border: 2px solid rebeccapurple;
+  }
   &__action-button {
     padding: 0.5rem 1rem;
     margin: 0.5rem;
-    font-size: 1rem;
+    background: #0a95ff;
   }
+  &__action-button-delete {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    background: #db4d3a;
+  }
+  @include media('<=tablet') {
+    .single-class-card {
+      display: block;
+      flex-direction: column;
+      padding: 1rem;
+      border: 1px solid #c8c8c8;
+      &__action-button {
+        padding: 0.5rem 1rem;
+        margin: 0.5rem;
+        font-size: 0.8rem;
+        background: #0a95ff;
+      }
+      &__action-button-delete {
+        padding: 0.5rem 1rem;
+        margin: 0.5rem;
+        font-size: .8rem;
+        background: #db4d3a;
+      }
+      &__btn {
+        display: flex;
+        flex-direction: column;
+      }
+}}
+
 }

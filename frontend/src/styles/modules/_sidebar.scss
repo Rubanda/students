@@ -1,5 +1,7 @@
+@import "../breakpoints/breakpoints.scss";
+
 .sidebar {
-  background: #c29bf8;
+  background: #030304;
   grid-area: sidebar;
   overflow-y: auto;
   padding: 20px;
@@ -15,17 +17,67 @@
 
   &__menu-link {
     padding: 1rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: #f4f5f8;
+
 
     &--selected {
-      background-color: #eaeaea;
+      background-color: #aa0000;
     }
   }
 
-  &__menu-link-container {
-    margin: 0;
+  &__menu-link-container  span{
+    font-size: 2rem;
+    padding: 1rem;
+  }
+    &__menu-link-container  h2{
+    font-size: 2rem;
+    padding: 1rem;
   }
 
-  &__logo-container {
+  &__logo-container img {
+    width: 100px;
+    width: 100px;
     margin-bottom: 10px;
   }
+  @include media ('<=phone'){
+    .sidebar {
+      &__logo-container img {
+        display: none;
+      }
+      &__menu-link-container  h2{
+        display: none;
+      }
+  &__menu-link-container  span{
+    font-size: 3rem;
+    padding: 1rem;
+  }
+    }
+
+  }
+    @include media ('<=tablet'){
+    .sidebar {
+      &__logo-container {
+        display: none;
+      }
+      &__menu-link-container  h2{
+        display: none;
+      }
+    }
+  }
+    @include media ('<=desktop'){
+    .sidebar {
+      &__logo-container {
+        display: inline-block;
+
+      }
+      &__menu-link-container  h2{
+        display: none;
+      }
+    }
+  }
+
 }
+

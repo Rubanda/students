@@ -13,6 +13,14 @@ const reducer = (state = initialState, action) => {
         students: action.payload
       }
     }
+    case actionTypes.DELETE_SINGLE_STUDENT: {
+      let newStudent = state.students || []
+      newStudent = newStudent.filter(item => item.id !== action.payload)
+      return {
+        ...state,
+        students: newStudent
+      }
+    }
     case actionTypes.CLEAR_STUDENTS: {
       return {
         ...state,

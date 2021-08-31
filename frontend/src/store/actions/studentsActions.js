@@ -25,6 +25,30 @@ export const studentsActions = {
       }
     }
   },
+    deleteStudents: async (id, dispatch) => {
+    let response;
+
+    try {
+      response = await api.delete(`/api/students/${id}`);
+    } catch (error) {
+      response = error.response
+    }
+
+    if (response?.status === 200) {  
+      dispatch({
+          type: actionTypes.DELETE_SINGLE_STUDENT,
+          payload: id
+      })
+
+    } else {
+      return {
+        type: actionTypes.ADD_STUDENTS_ERROR,
+        payload: {
+          "fetch_courses": response.data
+        }
+      }
+    }
+  },
   clearCourses: () => {
     return {
       type: actionTypes.CLEAR_STUDENTS,

@@ -10,7 +10,6 @@ export const coursesActions = {
     } catch (error) {
       response = error.response
     }
-    console.log(">>>>>>>>>>>>>> here error", response)
     if (response?.status === 200) {
       return {
         type: actionTypes.ADD_COURSES,
