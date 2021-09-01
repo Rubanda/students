@@ -29,7 +29,7 @@ const  ClassesTab = () => {
           <h1>Classes</h1>
         </div>
         <div className="classes__create-link">    
-          <Link style={{ textDecoration: 'none' }} to="/classes/add" >Create New Class</Link>
+          <Link style={{ textDecoration: 'none', color: 'white' }} to="/classes/add" >Create New Class</Link>
 
         </div>
       </div>

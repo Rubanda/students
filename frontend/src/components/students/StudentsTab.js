@@ -28,8 +28,8 @@ const StudentsTab = ()  => {
         <div className="classes__create-h1">
           <h1 >Students</h1>
         </div>
-        <div className="classes__create-link    ">
-        <Link style={{ textDecoration: 'none' }} to="/students/add">
+        <div className="classes__create-link">
+          <Link style={{ textDecoration: 'none', color: 'white'}} to="/students/add">
           Create New Student
         </Link>
         </div>

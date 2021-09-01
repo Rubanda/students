@@ -9,54 +9,42 @@
     justify-content: space-between;
     margin-bottom: 20px;
   }
-  &__create-link {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 5px;
-    padding: .5rem;
-    border: 1px solid #221133;
-    font-size: 0.9rem;
-    width: 120px;
-    text-decoration: none;
-      &:hover{
-        box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
-      }
-
+  &__create-h1 {
+    font-size: 1.7rem;
   }
-  &__c-card {
-    display: inline-block;
-    padding: 1rem;
-    width: 100%;
-    max-width: 550px;
-    margin-top: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  &__create-link {
     text-align: center;
-    background: #fff;
-    box-shadow: 0 6px 10px -5px rgba(0, 0, 0, 0.2);
-
-    // &:hover{
-    //   transform: translateY(-5px);
-    //   box-shadow: 0 20px 20px -15px rgba(0, 0, 0, 0.3);
-    // }
-
-  &__form {
     display: flex;
     align-items: center;
-  }  
-
-  &__action-button {
-    padding: 0.5rem 1rem;
-    margin: 0.5rem;
-    background: #0a95ff;
+    margin-bottom: 5px;
+    background: #221133;
+    padding: .5rem;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 10px;
+    // border: 1px solid grey;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    width: 120px;
+    text-decoration: none;
+    &:hover{
+      box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
     }
+
   }
+  
 
   @include media('<=phone'){
     &__layouts {
       display:block;
       margin-bottom: 20px;
     }
+      &__create-h1 {
+        text-align: center;
+        font-size: 1.3rem;
+      }
 }
 
 
@@ -68,15 +56,26 @@
       display:block;
       margin-bottom: 20px;
     }
+    &__create-h1 {
+      text-align: center;
+      font-size: 1.3rem;
+      }
     &__create-link {
+      display: flex;
+      justify-content: center;
       margin-bottom: 5px;
+      background: #221133;
       padding: .5rem;
       font-size: 0.9rem;
-      border: 1px solid grey;
-      width: 120px;
+      border: none;
+      border-radius: 10px;
+      // border: 1px solid grey;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
       text-decoration: none;
       &:hover{
         box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
       }
-  } 
-}}
+
+
+}}}

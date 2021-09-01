@@ -33,7 +33,7 @@ const SingleStudentCard = ({ student }) => {
         <div className="single-student-card__link">
           <Link style={{ textDecoration: 'none' }} to={`/students/${student.id}`}>{student.name}</Link>
         </div>
-        <div className="single-student-card__btns">
+        <div className="single-student-card__btn">
           <button className="single-student-card__action-button" onClick={handleEdit}>Edit</button>
           <button className="single-student-card__action-button-delete" disabled={loading} onClick={handleDelete}>{loading ? "Deleting..." : "Delete"}</button>
         </div>

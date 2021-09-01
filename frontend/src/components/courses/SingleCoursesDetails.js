@@ -28,15 +28,13 @@ function SingleCoursesDetails() {
         values
           ?
           (
-            <div>
+            <div className="details-card__layout">
               <div className="details-card__name">
                 <p><strong>Name:</strong> {values.name}</p>
               </div>
-              <div style={{ marginTop: "15px" }}>
-                <div>
-                  <h6 style={{ fontSize: "28px", fontWeight: 700, }}>Students</h6>
-                </div>
-                <div calssName="details-card__link">
+              <div calssName="links">
+                  <h6 style={{ fontSize: "28px", fontWeight: 700, }}>Students</h6>  
+                <div className="details-card__students-name">
                   {
                     values?.students?.length > 0
                       ?
@@ -62,8 +60,8 @@ function SingleCoursesDetails() {
                   }
                 </div>
               </div>
-              <div style={{ marginTop: "10px"}}>
-                <Link to={`/courses/${values.id}/edit`}>Edit Course</Link>
+              <div className="details-card__button-link">
+                <Link style={{textDecoration: "none", color: 'white'}} to={`/courses/${values.id}/edit`}>Edit Course</Link>
               </div>
             </div>
           )
