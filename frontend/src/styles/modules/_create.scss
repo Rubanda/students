@@ -1,0 +1,90 @@
+@import "../breakpoints/breakpoints.scss";
+
+
+.background-card{
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  &__button {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__input {
+    display: flex;
+    flex-direction: column;
+  }
+  &__input label{
+    font-size: 1.5rem;
+  }
+  &__submit{
+    transition: .4s;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    color: #fff;
+    outline: none;
+    // border: none;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    background: #1fa185;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+    &:hover {
+      transition: .4s;
+      background: #1fa185;
+      box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.26);
+      border: 1px solid #1fa185;
+    }
+  }
+
+  &__cancel{
+    transition: .4s;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    margin: 0.5rem;
+    color: #fff;
+    font-size: 1.2rem;
+    border: none;
+    background: #8388a4;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+    &:hover {
+      transition: .4s;
+      background: #8388a4;
+      box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.26);
+      border: 1px solid #8388a4;
+
+  }}
+  &__delete {
+    transition: .4s;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    color: #fff;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    outline: none;
+    background: #db4d3a;
+    border: none;
+    border-radius: 10px; 
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+    &:hover {
+      transition: .4s;
+      background: #db4d3a;
+      box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.26);
+      border: 1px solid #db4d3a;
+      }
+    }
+  &__button-link {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  @include media('<=phone') {
+      &__button {
+    display: block;
+    align-items:flex-start ;
+  }
+  }
+}
+  

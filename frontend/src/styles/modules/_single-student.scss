@@ -1,7 +1,7 @@
 @import "../breakpoints/breakpoints.scss";
 
 
-.single-class-card {
+.single-student-card {
   border-bottom: 1px solid #ccc;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -17,7 +17,7 @@
     text-decoration: none !important;
   }
 
-  &__btn {
+  &__btns {
     display: flex;
     justify-content: flex-end;
     font-size: 1.5rem;
@@ -41,28 +41,29 @@
       box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.26);
       border: 1px solid #1fa185;
     }
+
   }
   &__action-button-delete {
     transition: .4s;
-    padding: 0.5rem 1rem;
-    margin: 0.5rem;
-    color: #fff;
-    outline: none;
-    border: none;
-    text-transform: uppercase;
-    font-size: 1.2rem;
-    background: #db4d3a;
-    border-radius: 6px;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
-    &:hover {
-      transition: .4s;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
+      color: #fff;
+      outline: none;
+      border: none;
+      text-transform: uppercase;
+      font-size: 1.2rem;
       background: #db4d3a;
-      box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.26);
-      border: 1px solid #db4d3a;
-    }
+      border-radius: 6px;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+      &:hover {
+        transition: .4s;
+        background: #db4d3a;
+        box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.26);
+        border: 1px solid #db4d3a;
+      }
   }
   @include media('<=tablet') {
-    .single-class-card {
+    .single-student-card {
       border: 1px solid #c8c8;
       &__layouts {
         display: grid;
@@ -97,22 +98,22 @@
       }
       &__action-button-delete {
         transition: .4s;
-          padding: 0.5rem 1rem;
-          margin: 0.5rem;
-          color: #fff;
-          outline: none;
-          border: none;
-          text-transform: uppercase;
-          font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+        margin: 0.5rem;
+        color: #fff;
+        outline: none;
+        border: none;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        background: #db4d3a;
+        border-radius: 6px;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+        &:hover {
+          transition: .4s;
           background: #db4d3a;
-          border-radius: 6px;
-          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
-          &:hover {
-            transition: .4s;
-            background: #db4d3a;
-            box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.26);
-            border: 1px solid #db4d3a;
-          }
+          box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.26);
+          border: 1px solid #db4d3a;
+        }
       }
       &__btn {
         display: flex;

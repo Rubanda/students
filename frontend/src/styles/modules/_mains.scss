@@ -25,37 +25,49 @@ body {
       overflow-y: auto;
 
       .dashboard {
-        margin-left: auto;
-        margin-right: auto;
-        width: 500px;
+        margin-left: 80px;
+        margin-right: 80px;
+
+        .input{
+          width:100%; 
+          border:2px solid #aaa;
+          border-radius:4px;
+          margin:8px 0;
+          outline:none;
+          padding:8px;
+          font-size: 1.5rem;
+          box-sizing:border-box;
+          transition:.3s;
+        }
+      
+        .input:focus{
+          border-color:dodgerBlue;
+          box-shadow:0 0 8px 0 dodgerBlue;
+        }
       }
-    /* form */
-      input[type=text]{
-        /* width:100%; */
-        border:2px solid #aaa;
-        border-radius:4px;
-        margin:8px 0;
-        outline:none;
-        padding:8px;
-        box-sizing:border-box;
-        transition:.3s;
-      }
-    
-      input[type=text]:focus{
-        border-color:dodgerBlue;
-        box-shadow:0 0 8px 0 dodgerBlue;
-      }
-      form {
-        display: flex;
-        align-items: center;
-      }
+
+
 
   }
     img {
       border-radius: 50%;
     }
-  @include media('<=phone') {
 
+  @include media('<=tablet') {
+    main {
+      .dashboard {
+        margin-left: 25px;
+        margin-right: 25px;
+      }
+    }
+  }
+  @include media('<=phone') {
+    main {
+    .dashboard {
+      margin-left: 2px;
+      margin-right: 2px;
+    }
+  }
   }
 }
 

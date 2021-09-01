@@ -1,0 +1,20 @@
+@import "../breakpoints/breakpoints.scss";
+
+.details-card{
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  &__name {
+    margin-bottom: 15px;
+  }
+  &__age {
+    margin-bottom: 15px;
+  }
+  &__link {
+    text-decoration: none;
+    font: 1.3rem;
+    color: inherit;
+  }
+}
