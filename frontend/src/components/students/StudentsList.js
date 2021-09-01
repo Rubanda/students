@@ -19,7 +19,7 @@ function StudentsTab() {
   }, [dispatch, students])
 
   return (
-    <div>
+    <div className="background-card">
       {
         students
           ?

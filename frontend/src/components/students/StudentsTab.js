@@ -23,12 +23,16 @@ const StudentsTab = ()  => {
   }, [dispatch, students])
 
   return (
-    <div className="class">
-      <div className="classes__header-container">
-        <h1 className="classes__header">Students</h1>
-        <Link to="/students/add" className="classes__create-link">
+    <div className="classes__header-container">
+      <div className="classes__layouts">
+        <div className="classes__create-h1">
+          <h1 >Students</h1>
+        </div>
+        <div className="classes__create-link    ">
+        <Link style={{ textDecoration: 'none' }} to="/students/add">
           Create New Student
         </Link>
+        </div>
       </div>
       <Switch>
         <Route path='/students' component={()=><StudentsList courses={students} />} exact></Route>

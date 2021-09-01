@@ -31,11 +31,16 @@ const SingleCourseCard = ({ singleCourse }) => {
   
   return (
     <div className="single-class-card">
-      <Link to={`/courses/${singleCourse.id}`}>{singleCourse.name}</Link>
-      <div>
-        <button className="single-class-card__action-button" onClick={handleEdit}>Edit</button>
-        <button className="single-class-card__action-button" disabled={loading} onClick={handleDelete}>{loading ? "Deleting..." : "Delete"}</button>
-      </div>
+      <div className="single-class-card__layouts" >
+        <div className="single-class-card__link">
+          <Link style={{ textDecoration: 'none' }} to={`/courses/${singleCourse.id}`}>{singleCourse.name}</Link>
+        </div>
+      
+        <div className="single-class-card__btn" >
+          <button className="single-class-card__action-button" onClick={handleEdit}>Edit</button>
+          <button className="single-class-card__action-button-delete" disabled={loading} onClick={handleDelete}>{loading ? "Deleting..." : "Delete"}</button>
+        </div>
+        </div>
     </div>
   )
 }

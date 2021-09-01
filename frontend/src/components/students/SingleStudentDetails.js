@@ -52,7 +52,7 @@ function SingleStudentDetails() {
                           {studentValues.courses.map(item => {
                             return (
                               <div key={item.id}>
-                                <Link to={`/courses/${item.id}`}>
+                                <Link style={{ textDecoration: 'none' }} to={`/courses/${item.id}`}>
                                   {item.name}
                                 </Link>
                               </div>
@@ -70,7 +70,7 @@ function SingleStudentDetails() {
                 </div>
               </div>
               <div style={{ marginTop: "10px"}}>
-                <Link to={`/students/${studentValues.id}/edit`}>Edit Student</Link>
+                <Link style={{ textDecoration: 'none' }} to={`/students/${studentValues.id}/edit`}>Edit Student</Link>
               </div>
             </div>
           )

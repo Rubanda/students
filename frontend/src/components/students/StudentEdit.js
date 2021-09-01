@@ -135,21 +135,21 @@ const CoursesEdit = () => {
   }
 
   return (
-    <div>
+    <div className="background-card">
       <form onSubmit={handleSubmit} style={{width: "100%"}}>
         <div style={{width: "100%"}}>
           {errors && <div className="error">{errors?.message}</div>}
-          <div style={{display: "flex", flexDirection: "column"}}>
+          <div className="background-card__input" >
             <label htmlFor="name">Name</label>
-            <input type="text" id="name" placeholder="Name" value={values.name || ""} onChange={handleChange("name")} required />
+            <input  className="input" type="text" id="name" placeholder="Name" value={values.name || ""} onChange={handleChange("name")} required />
           </div>
-          <div style={{display: "flex", flexDirection: "column"}}>
+          <div className="background-card__input">
             <label htmlFor="age">Age</label>
-            <input type="text" id="name" placeholder="Age" value={values.age || ""} onChange={handleChange("age")} required />
+            <input className="input" type="text" id="name" placeholder="Age" value={values.age || ""} onChange={handleChange("age")} required />
           </div>
-          <div style={{display: "flex", flexDirection: "column"}}>
+          <div className="background-card__input">
             <label htmlFor="class">Class</label>
-            <select id="class" placeholder="Class" value={values.class_id || ""} onChange={handleChange("class_id")} required>
+            <select style={{fontSize:  "1.7rem"}} id="class" placeholder="Class" value={values.class_id || ""} onChange={handleChange("class_id")} required>
               <option>-</option>
               {
                 classes && (
@@ -166,9 +166,9 @@ const CoursesEdit = () => {
               }
             </select>
           </div>
-          <div style={{display: 'flex', justifyContent: "space-between", marginTop: "16px"}}>
-            <button sytle={{ padding: '1px', marginLeft: '20px', }} type="submit" disabled={loading}>{loading ? "Submiting..." : "Submit"}</button>
-            <button sytle={{ padding: '1px', marginLeft: '20px',}} type="reset" onClick={handleCancel}>Cancel</button>
+          <div  className="background-card__button">
+            <button className="background-card__submit"  type="submit" disabled={loading}>{loading ? "Submiting..." : "Submit"}</button>
+            <button className="background-card__cancel"type="reset" onClick={handleCancel}>Cancel</button>
           </div>
         </div>
       </form>
@@ -181,9 +181,9 @@ const CoursesEdit = () => {
                 {
                   values.courses.map(item => {
                     return (
-                      <div key={item.id} style={{display: "flex", justifyContent: "space-between", marginBottom: "10px"}}>
-                        <Link to={`/courses/${item.id}`}>{item.name}</Link>
-                        <button onClick={() => {handleRemoveCourse(item.id)}}>Delete</button>
+                      <div key={item.id} className="background-card__button-link">
+                        <Link style={{ textDecoration: 'none' }} to={`/courses/${item.id}`}>{item.name}</Link>
+                        <button className="background-card__delete" onClick={() => {handleRemoveCourse(item.id)}}>Delete</button>
                       </div>
                     )
                   })
@@ -192,9 +192,9 @@ const CoursesEdit = () => {
             )
           }
         </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div className="background-card__input">
           <label htmlFor="course" style={{marginBottom: "10px"}}>Add Courses</label>
-          <select id="course" placeholder="Courses" value={courseValues || ""} onChange={handleCourseChange} required>
+          <select style={{fontSize: "1.7rem"}} id="course" placeholder="Courses" value={courseValues || ""} onChange={handleCourseChange} required>
             <option>-</option>
             {
               courses && (
@@ -211,7 +211,7 @@ const CoursesEdit = () => {
             }
           </select>
         </div>
-        <button onClick={handleAddCourse} style={{marginTop: "16px"}}>Add Course</button>
+        <button className="background-card__submit" onClick={handleAddCourse} style={{marginTop: "16px"}}>Add Course</button>
       </div>
     </div>
   )

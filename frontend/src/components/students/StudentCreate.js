@@ -60,22 +60,22 @@ const ClassesCreate = () =>{
   }
 
   return (
-    <div className="classes-header">
-      <div className="cards__c-card">
+    <div className="background-card">
+      <div>
         <form onSubmit={handleSubmit}>
           <div>
           {errors && <div className="error">{errors?.message}</div>}
-          <div style={{display: "flex", flexDirection: "column"}}>
+          <div className="background-card__input">
             <label htmlFor="name">Name</label>
-            <input type="text" id="name" placeholder="Name" value={values.name || ""} onChange={handleChange("name")} required />
+            <input className="input" type="text" id="name" placeholder="Name" value={values.name || ""} onChange={handleChange("name")} required />
           </div>
-          <div style={{display: "flex", flexDirection: "column"}}>
+          <div className="background-card__input" >
             <label htmlFor="age">Age</label>
-            <input type="text" id="name" placeholder="Age" value={values.age || ""} onChange={handleChange("age")} required />
+            <input className="input" type="text" id="name" placeholder="Age" value={values.age || ""} onChange={handleChange("age")} required />
           </div>
-          <div style={{display: "flex", flexDirection: "column"}}>
+          <div className="background-card__input">
             <label htmlFor="class">Class</label>
-            <select id="class" placeholder="Class" value={values.class_id || ""} onChange={handleChange("class_id")} required>
+              <select style={{ fontSize: "2rem"}} id="class" placeholder="Class" value={values.class_id || ""} onChange={handleChange("class_id")} required>
               <option>-</option>
               {
                 classes && (
@@ -92,9 +92,9 @@ const ClassesCreate = () =>{
               }
             </select>
           </div>
-          <div style={{display: 'flex', justifyContent: "space-between", marginTop: "16px"}}>
-            <button sytle={{ padding: '1px', marginLeft: '20px', }} type="submit" disabled={loading}>{loading ? "Submiting..." : "Submit"}</button>
-            <button sytle={{ padding: '1px', marginLeft: '20px',}} type="reset" onClick={handleCancel}>Cancel</button>
+          <div className="background-card__button">
+            <button className="background-card__submit" type="submit" disabled={loading}>{loading ? "Submiting..." : "Submit"}</button>
+            <button  className="background-card__cancel" type="reset" onClick={handleCancel}>Cancel</button>
           </div>
         </div>
         </form>

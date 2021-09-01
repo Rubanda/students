@@ -4,7 +4,7 @@ import SingleClassCard from './SingleClassCard'
 const ClassesList = ({ classes }) => {
   
   return (
-    <div className='classes'>
+    <div className="background-card">
       {
         classes
           ?

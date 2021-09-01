@@ -23,12 +23,14 @@ const CoursesTab = ()  => {
   }, [dispatch, courses])
 
   return (
-    <div className="class">
-      <div className="classes__header-container">
-        <h1 className="classes__header">Course</h1>
-        <Link to="/courses/add" className="classes__create-link">
-          <button className="classes__create-link__button">Create New Course
-          </button></Link>
+    <div className="classes__header-container">
+      <div className="classes__layouts">
+        <div className="classes__create-h1">
+          <h1 >Course</h1>
+        </div>
+        <div className="classes__create-link">
+          <Link style={{ textDecoration: 'none' }}to="/courses/add">Create New Course</Link>
+        </div>
       </div>
       <Switch>
         <Route path='/courses' component={()=><CourseList courses={courses} />} exact></Route>

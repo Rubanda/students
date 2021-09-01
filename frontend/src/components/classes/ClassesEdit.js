@@ -59,25 +59,31 @@ function ClassesEdit() {
   }, [params.id, values])
 
   return (
-    <div className="cards__c-card">
+    <div className="background-card">
         
         <form onSubmit={handleSubmit} >
           {errors && <div className="error">{errors?.message}</div>}
           <div className='cards__c-card__form'>
-            <div style={{ display: "flex", flexDirection: "column" }}>
+            <div className="background-card__input">
               <label htmlFor="name">Name</label>
-              <input id="name" placeholder="Name" type="text" value={values.name || ""} onChange={handleChange}  required />
+              <input className="input"id="name" placeholder="Name" type="text" value={values.name || ""} onChange={handleChange}  required />
           </div>
           
-            <div style={{display: "flex", justifyContent: "space-between"}}>
+            <div className="background-card__button">
               <button
-                className="cards__c-card__action-button"
+                className="background-card__submit"
                 type="submit"
                 disabled={loading}
               >
                 {loading ? "Updating..." : "Updating Class"}
               </button>  
-              <button type="reset" disabled={loading} onClick={handleCancel}>Cancel</button>
+            <button
+              className="background-card__cancel"
+              type="reset"
+              disabled={loading}
+              onClick={handleCancel}>
+              Cancel
+            </button>
             </div>
           </div>
           

@@ -45,20 +45,22 @@ const CoursesCreate = () =>{
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} style={{width: "100%"}}>
-        <div style={{width: "100%"}}>
+    <div className="background-card">
+      <div>
+        <form onSubmit={handleSubmit} style={{width: "100%"}}>
+        <div>
           {errors && <div className="error">{errors?.message}</div>}
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div className="background-card__input">
             <label htmlFor="name">Name</label>
-            <input id="name" placeholder="Name" type="text" value={values.name || ""} onChange={handleChange}  required />
+            <input className="input" id="name" placeholder="Name" type="text" value={values.name || ""} onChange={handleChange}  required />
           </div>
-          <div style={{display: "flex", justifyContent: "space-between"}}>
-            <button type="submit" disabled={loading}>{loading ? "Submiting..." : "Submit"}</button>
-            <button type="reset" disabled={loading} onClick={handleCancel}>Cancel</button>
+          <div className="background-card__button">
+            <button className="background-card__submit" type="submit" disabled={loading}>{loading ? "Submiting..." : "Submit"}</button>
+            <button className="background-card__cancel" type="reset" disabled={loading} onClick={handleCancel}>Cancel</button>
           </div>
         </div>
       </form>
+      </div>
     </div>
   )
 }

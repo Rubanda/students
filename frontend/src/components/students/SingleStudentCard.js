@@ -28,16 +28,16 @@ const SingleStudentCard = ({ student }) => {
     }
   }, [loading])
   return (
-    <div>
-      <div className="single-class-card">
-      <Link to={`/students/${student.id}`}>{student.name}</Link>
-      <p>{student.age}</p>
-        <p>{student.class?.name}</p>
-      </div>
-      <div>
-          <button className="single-class-card__action-button" onClick={handleEdit}>Edit</button>
-          <button className="single-class-card__action-button" disabled={loading} onClick={handleDelete}>{loading ? "Deleting..." : "Delete"}</button>
+    <div className="single-student-card" >
+      <div className="single-student-card__layouts">
+        <div className="single-student-card__link">
+          <Link style={{ textDecoration: 'none' }} to={`/students/${student.id}`}>{student.name}</Link>
         </div>
+        <div className="single-student-card__btns">
+          <button className="single-student-card__action-button" onClick={handleEdit}>Edit</button>
+          <button className="single-student-card__action-button-delete" disabled={loading} onClick={handleDelete}>{loading ? "Deleting..." : "Delete"}</button>
+        </div>
+      </div>
     </div>
   )
 }

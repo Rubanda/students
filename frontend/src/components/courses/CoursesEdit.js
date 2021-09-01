@@ -124,17 +124,17 @@ const CoursesEdit = () => {
   }
 
   return (
-    <div>
+    <div className="background-card">
       <form onSubmit={handleSubmit} style={{width: "100%"}}>
         <div style={{width: "100%"}}>
           {errors && <div className="error">{errors?.message}</div>}
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div className="background-card__input">
             <label htmlFor="name">Name</label>
-            <input id="name" placeholder="Name" type="text" value={values.name || ""} onChange={handleChange}  required />
+            <input className="input" id="name" placeholder="Name" type="text" value={values.name || ""} onChange={handleChange}  required />
           </div>
-          <div style={{display: "flex", justifyContent: "space-between"}}>
-            <button type="submit" disabled={loading}>{loading ? "Submiting..." : "Submit"}</button>
-            <button type="reset" disabled={loading} onClick={handleCancel}>Cancel</button>
+          <div className="background-card__button">
+            <button className="background-card__submit" type="submit" disabled={loading}>{loading ? "Submiting..." : "Submit"}</button>
+            <button className="background-card__cancel" type="reset" disabled={loading} onClick={handleCancel}>Cancel</button>
           </div>
         </div>
       </form>
@@ -147,9 +147,9 @@ const CoursesEdit = () => {
                 {
                   values.students.map(item => {
                     return (
-                      <div key={item.id} style={{display: "flex", justifyContent: "space-between", marginBottom: "10px"}}>
-                        <Link to={`/students/${item.id}`}>{item.name}</Link>
-                        <button onClick={() => {handleRemoveStudent(item.id)}}>Delete</button>
+                      <div key={item.id} className="background-card__button-link">
+                        <Link style={{ textDecoration: 'none' }} to={`/students/${item.id}`}>{item.name}</Link>
+                        <button className="background-card__delete" onClick={() => {handleRemoveStudent(item.id)}}>Delete</button>
                       </div>
                     )
                   })
@@ -158,9 +158,9 @@ const CoursesEdit = () => {
             )
           }
         </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div className="background-card__input">
           <label htmlFor="course" style={{marginBottom: "10px"}}>Add Students</label>
-          <select id="course" placeholder="Courses" value={studentValue || ""} onChange={handleStudentChange} required>
+          <select style={{fontSize: "1.7rem"}} id="course" placeholder="Courses" value={studentValue || ""} onChange={handleStudentChange} required>
             <option>-</option>
             {
               students && (
@@ -177,7 +177,7 @@ const CoursesEdit = () => {
             }
           </select>
         </div>
-        <button onClick={handleAddStudent} style={{marginTop: "16px"}}>Add Student</button>
+        <button className="background-card__submit" onClick={handleAddStudent} style={{marginTop: "16px"}}>Add Student</button>
       </div>
     </div>
   )

@@ -22,25 +22,25 @@ function SingleClassDetails() {
   }, [params.id, classValues])
 
   return (
-    <div>
+    <div className="details-card">
       {errors && <div className="error">{ errors?.message }</div>}
       {
         classValues
           ?
           (
             <div>
-              <div>
+              <div className="details-card__name">
                 <p><strong>Name:</strong> {classValues.name}</p>
               </div>
-              <div>
+              <div className="details-card__age">
                 <p><strong>Number of Students:</strong> {classValues.students?.length}</p>
               </div>
               <div style={{ marginTop: "15px" }}>
                 <div>
-                  <h6 style={{ fontSize: "16px" }}>Students</h6>
+                  <h6 style={{ fontSize: "28px", fontWeight: 700, }}>Students</h6>
                   {/* <button onClick={handleAddStudent}>Add Student</button> */}
                 </div>
-                <div>
+                <div calssName="details-card__link">
                   {
                     classValues?.students?.length > 0
                       ?
@@ -48,8 +48,8 @@ function SingleClassDetails() {
                         <>
                           {classValues.students.map(item => {
                             return (
-                              <div key={item.id}>
-                                <Link to={`/students/${item.id}`}>
+                              <div  key={item.id}>
+                                <Link style={{ textDecoration: 'none' }} to={`/students/${item.id}`}>
                                   {item.name}
                                 </Link>
                               </div>

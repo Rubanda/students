@@ -30,15 +30,17 @@ const SingleClassCard = ({ singleClass }) => {
   }, [loading])
   
   return (
-    <div>
-      <div className="classes">
-        <Link className = "classes__c-card" to={`/classes/${singleClass.id}`}>{singleClass.name}</Link>
+    <div className="single-class-card">
+      <div className="single-class-card__layouts">
+        <div className="single-class-card__link">
+          <Link style={{ textDecoration: 'none' }} to={`/classes/${singleClass.id}`}>{singleClass.name}</Link>
+        </div>
         <div className="single-class-card__btn">
           <button className="single-class-card__action-button" onClick={handleEdit}>Edit</button>
           <button className="single-class-card__action-button-delete" disabled={loading} onClick={handleDelete}>{loading ? "Deleting..." : "Delete"}</button>
+          </div>
         </div>
       </div>
-    </div>
   )
 }
 
