@@ -6,14 +6,14 @@ import StudentsTab from '../components/students/StudentsTab'
 
 const Dashboard = () => {
   return (
-    <div className='main__dashboard'>
+    <>
       <Switch>
         <Route path='/' component={ClassesTab} exact></Route>
         <Route path='/classes' component={ClassesTab}></Route>
         <Route path='/students' component={StudentsTab}></Route>
         <Route path='/courses' component={CoursesTab}></Route>
       </Switch>
-    </div>
+    </>
   )
 }
 
